@@ -1,0 +1,230 @@
+------------------------------------------------------------------------------
+ 3.2
+------------------------------------------------------------------------------
+Fixed AutoLoadIos
+Warns of error 003 when patching korean key into IOS 70 or 80 on a non korean wii
+Added DisableControllerButtonHold, if set to 1 menus will no longer react to buttons being held down
+More Wiimote cleanup
+USB fixed( but temperamental DisableSetAHBPROT = 1 AutoLoadIOS = 0 )
+Now compiled with devkitPPC 26 and libogc 1.8.11.1
+
+------------------------------------------------------------------------------
+ 3.1
+------------------------------------------------------------------------------
+Added missing ios hashes thanks to kylster and Joostin
+Removed 3.3k nus option from system menu installs
+Region changer now only allows languages supported by the region
+Fixed app loader glitch going back up dir
+Now detects region changed korean wiis and warns of bricks thanks to Joostin
+Combined Wad_Uninstall and Uninstall_FromTitle
+Now compiled with devkitPPC 25 and libogc 1.8.10, fixes new Wiimotes
+
+------------------------------------------------------------------------------
+ 3.0
+------------------------------------------------------------------------------
+Fixed bug fetching region for some system menus that was introduced in 2.9
+Fixed IOS 3 not showing in IOS menu
+Changed so if it crashes it will reboot in 5 seconds
+Fixed some issues with install cios
+Changed batch wad (un)/installs so it says what # its on
+Added support for IOS 253 bootsneek so check IOS doesn't choke on it
+Wad Manager no longer lists mac os x metadata files(._ files)
+changed wad manager so it reloads AutoLoadIOS on install if AutoLoadOnInstall
+  is set
+Added option onlyCheckIOSOnDemand, if set it'll only check IOSs when called
+  from the check IOS menu
+Added option on Check IOS menu, if you have AHBPROT it will check IOS < 28
+  instead of skipping them, this may make you lose AHBPROT depending on the
+  patches you have applied.
+During system menu installs it checks if you have the correct IOS it now
+  will check the permissions of the IOS if you haven't run Check IOS yet.
+Merged some changes from BLIND
+Can now change System Menu to run on IOS <22
+Install system menu from wad
+Now compiled with devkitPPC 24 and libogc 1.8.8
+
+------------------------------------------------------------------------------
+ 2.9
+------------------------------------------------------------------------------
+Fixed Wad manager crashing on install failures
+Batch wad installs now give a summary of errors they had
+When wad dump fails it now skips the rest of the contents
+Changed any title manager menus so its not easy to accidentally delete something
+Tweaked wiimote controls
+The new setAHBPROT patch causes usb to fail so added an option DisableSetAHBPROT to fix usb
+Added a csv output quick viewer
+
+------------------------------------------------------------------------------
+ 2.8
+------------------------------------------------------------------------------
+Fixed display bug in IOS menu
+Thanks to davebaol the AHBPROT no net bug is fixed!
+Now compiled with devkitPPC 23 and libogc 1.8.7
+AHBPROT can now be passed on to the next reloaded IOS
+Added Set AHBPROT patch for IOSs, it allows an IOS to reload the next
+  IOS with AHBPROT, so you can get AHBPROT again after losing it
+Can now choose version and required IOS of System menu
+Moved remove stubs to the IOS Menu
+Check IOSs now no longer drops AHBPROT but it skips checking IOSs < 28
+
+------------------------------------------------------------------------------
+ 2.7
+------------------------------------------------------------------------------
+Changed how system menu region is detected
+Added Region presets to any region changer
+Fixed Channels and System menu install issue with receiving http 1.0 replies
+Moved AHBPROT no net code, should catch in more cases
+if AutoloadIOS is installed and it wasnt before, reload it if AutoLoadOnInstall is on
+Changed the IOS menu around
+Added new feature copy ios to another location and or change version and or patch perms
+BC now dumps to RVL-bc-v[x].wad on any title manager
+MIOS now dumps to RVL-mios-v[x].wad on any title manager
+IOSs now dumps to IOS16-64-v[x].wad on any title manager
+Channel Menu now display currently installed version.
+Lots of code cleanup and bug fixes
+
+------------------------------------------------------------------------------
+ 2.6
+------------------------------------------------------------------------------
+Added 2 config options to skip checking certain IOSs:
+skipios for skipping a number and skiphash for skipping a specific hash
+Anytitle Manager will now mark channels that were likely moved to SD
+Added Errors and Warnings to the csv
+Anytitle Manager now shows at a glance titles that don't match your Wiis region(This is normal for custom titles ex:Forwarders)
+Now compatible with cboot2
+Now compatible with sneek/uneek(AHBPROT doesn't work)
+
+------------------------------------------------------------------------------
+ 2.5
+------------------------------------------------------------------------------
+IOS menu shows clean IOSs at a glance( clean == Nintendo IOS )
+When installing an IOS over a clean IOS with a higher revision it will now try to change the version the IOS instead of deleting it
+Added option, DeleteDefaultInsteadRemove, to override this new higher version default action and delete the IOS
+Fixed some issues in wad manager and cleaned up the menus
+Check ios now has options to display ios currently being checked, dump IOS hashes, and skip checking the IOSs 	just output csv(useful if it errors while checking)
+Brought back the config option AutoLoadIOS to load a specific IOS at launch(ex 236)
+More caching and general speed up.
+
+------------------------------------------------------------------------------
+ 2.4
+------------------------------------------------------------------------------
+Now identifies stubs by known hashes, speeds up and improves accuracy of IOS stub deleter and checkios
+AHBPROT mode now works in any region changer and any title manager.
+Fixed wad extract in AHBPROT mode
+Fixed fakesign installer and added option to change install location to 236
+Lots of code clean up, way more efficient, no more gotos
+
+------------------------------------------------------------------------------
+ 2.3
+------------------------------------------------------------------------------
+Fixed Wad Manager browsing usb and smb.
+Removed message when missing needed IOS while scanning titles
+
+------------------------------------------------------------------------------
+ 2.2
+------------------------------------------------------------------------------
+Added double buffering to stop the menus from flickering
+Fixed bug in wad dumping that caused crashes when failing to allocate memory
+Advanced menu no longer reloads the ios
+Cached many values that are read multiple times from the wii, much more efficient with Any Title Manager and the IOS Menu
+You can now press B to cancel installing a Channel, IOS, or System Menu while it's still downloading
+Changed movement through files in any title manager, wad manager and app loader
+Cleaned up any title manager menus, added some color, and sorted the titles.
+Fixed bug in installing IOS from wad
+Menus are now color coded to help you find and fix bugs.
+IOS menu will warn you if you try to delete an IOS that is used by a WiiWare and warn you if such an IOS is not currently installed.
+Removed config option checkios, it is meaningless now
+
+------------------------------------------------------------------------------
+ 2.1
+------------------------------------------------------------------------------
+Fixed anyregion changer
+Fixed fakesign installers
+Added missing IOSes 3 and 5 to stub deleter
+titles database moved to sd:/apps/wiimod/database.txt, still checks sd:/database.txt as fallback
+Config file moved to sd:/apps/wiimod/wiimod.txt
+IOS csv moved to sd:/wad/wiimod/
+Added Front light feedback to system menu install
+Disabled the password feature left in wadmanger
+Adjusted wiimote controls
+
+------------------------------------------------------------------------------
+ 2.0
+------------------------------------------------------------------------------
+Added Front light feedback to IOS install and check IOSs, makes for easier update all IOSs
+Fixed bugs with install cios menu
+Added IOS extractor
+Made a temp fix for AHBPROT no network bug.
+Cleaned up code in main menu
+Added Any Title Manager( Extractor/Deleter ) -- Doesn't work in AHBPROT
+Fixed error in IOS manager with displaying version sometimes
+Added more IOS details to IOS Manager
+Moved main menu options around
+Fixed bug in IOS installer new revision selector
+Fixed bug with changing revision number sometimes
+Added a warning if you try to delete the IOS used by HBC
+Fixed SMB Shares
+
+------------------------------------------------------------------------------
+ 1.8
+------------------------------------------------------------------------------
+Fixed checking some IOSs
+Added IOS version to cvs output and Wii Mod version
+Added System Menu 2.0, 2.1, 2.2, 3.0, and 3.1
+Added Wii Speak Channel, EULA, BC, MIOS, Region Select, Digicam Print Channel(Japan only), Japan Food 	Service/Demae Channel(Japan only), Shashin Channel 1.0 Fukkyuu Programme(Japan only),
+	TV Friend Channel / G-Guide for Wii(Japan only), and Wii no Ma Channel(Japan only)
+Added Channel Version support
+Changed the way patches are chosen
+Added Applauncher
+
+------------------------------------------------------------------------------
+ 1.7
+------------------------------------------------------------------------------
+Changed check IOSs to reload original IOS before outputting csv, should cause fewer errors.
+Changed how IOS revs were grabbed in a few places, should cause fewer errors in deleting IOSs, checking IOSs and a few other places.
+Changed Config to sd:/wad/wiimod.txt
+
+------------------------------------------------------------------------------
+ 1.6
+------------------------------------------------------------------------------
+Fixed bug in IOS menu not showing options of selected IOS
+
+------------------------------------------------------------------------------
+ 1.5
+------------------------------------------------------------------------------
+Added Any Region Changer
+Added missing IOS 22 v1294
+Added patching of Korean key, Add Ticket version check, and Setuid check.
+Fixed bug in new channel install
+Fixed System Menu bug 4.3E & 4.3U were swapped
+Fixed bug in update all IOSs, would miss updating IOSs that don't have any revision installed yet.
+Lots of code clean up.
+
+------------------------------------------------------------------------------
+ 1.0
+------------------------------------------------------------------------------
+dropped priiloader hacks as priiloader is changing and it really wasn't that helpful
+Updated to devkitPPC r22 and libogc 1.8.6
+Fixed usb
+express tbr install keeps IOS15 v257 to support Hackmii
+Hold D-PAD for continuous scrolling
+changed install/tbr to look for backup folder from \wad instead of \wads
+added to WAD Manager an option to abort batch operations with B button
+wadmanager now can mark a sub-folder all for install or uninstall using (+)/(-)
+updated to support System Menu 4.3
+updated to support all the new IOSs
+Improved channel installer compatibility
+
+Warns if trying to install a system menu if you are missing the required IOS.
+Protects you from deleting the system menu IOS in the IOS menu.
+
+Supports AHBPROT in all areas, if in AHBPROT mode it won't check IOSs unless
+you manually do it from the menu as that looses AHBPROT mode.
+
+Reorganised menu, prompts and bugfixes
+
+------------------------------------------------------------------------------
+ older versions
+------------------------------------------------------------------------------
+The older versions can be found at
+http://gbatemp.net/t200297-jskyboo-s-new-improved-mod-of-dop-ios-mod-10
