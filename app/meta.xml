@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<app version="1">
+	<name>Wii Mod (v3.2)</name>
+	<version>v3.2</version>
+	<release_date>20120524</release_date>
+	<coder>jskyboo</coder>
+	<short_description>Wii Mod</short_description>
+	<long_description>A tool that will let you install IOSs, channels, system menus, and more!
+</long_description>
+<no_ios_reload/>
+</app>
